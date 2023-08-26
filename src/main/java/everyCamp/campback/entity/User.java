@@ -1,17 +1,14 @@
 package everyCamp.campback.entity;
 
-import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
 import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -39,10 +36,4 @@ public class User {
     @Column(name = "deleted_dt_or_null")
     private LocalDateTime deletedDateOrNull;
 
-    @Column(name = "prefer_type")
-    @Type(ListArrayType.class)
-    private List<PreferType> preferTypeList = new ArrayList<>();
-    @Column(name = "prefer_region")
-    @Type(ListArrayType.class)
-    private List<PreferRegion> preferRegionList = new ArrayList<>();
 }

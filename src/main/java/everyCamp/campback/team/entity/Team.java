@@ -1,10 +1,10 @@
 package everyCamp.campback.team.entity;
 
+import everyCamp.campback.common.entity.BaseEntity;
 import everyCamp.campback.common.entity.PreferRegion;
 import everyCamp.campback.common.entity.PreferType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -15,8 +15,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "teams")
-@Getter @Setter
-public class Team {
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Team extends BaseEntity {
     @Id @Column(name = "team_id")
     @GeneratedValue(generator = "uuid4")
     @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
@@ -27,10 +28,11 @@ public class Team {
     private User leader;
     private String name;
     private int recruitNumber;
-    private LocalDateTime createdDt;
-    private LocalDateTime updatedDt;
+    @Column(name = "deleted_dt_or_null")
+    private LocalDateTime deletedDtOrNull;
     @ManyToMany
-    private Set<PreferType> preferTypes = new HashSet<>();
+    private Set<PreferType> preferTypes;
     @ManyToMany
-    private Set<PreferRegion> preferRegions = new HashSet<>();
+    private Set<PreferRegion> preferRegions;
+
 }

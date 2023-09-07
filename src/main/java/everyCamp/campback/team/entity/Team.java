@@ -56,4 +56,8 @@ public class Team extends BaseEntity {
     public void addPreferRegion(PreferRegion preferRegion) {
         this.preferRegions.add(preferRegion);
     }
+
+    public void deleteTeam() {
+        this.deletedDtOrNull = LocalDateTime.now();
+    }
 }

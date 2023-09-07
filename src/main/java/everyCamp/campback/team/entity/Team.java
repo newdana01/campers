@@ -34,6 +34,8 @@ public class Team extends BaseEntity {
     private Set<PreferType> preferTypes;
     @ManyToMany
     private Set<PreferRegion> preferRegions;
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    private Set<TeamMember> teamMembers;
 
     @Builder
     protected Team(
@@ -41,12 +43,15 @@ public class Team extends BaseEntity {
             User leader,
             int recruitNumber,
             Set<PreferType> preferTypes,
-            Set<PreferRegion> preferRegions) {
+            Set<PreferRegion> preferRegions,
+            Set<TeamMember> teamMembers,
+            ) {
         this.name = name;
         this.leader = leader;
         this.recruitNumber = recruitNumber;
         this.preferTypes = preferTypes;
         this.preferRegions = preferRegions;
+        this.teamMembers = teamMembers;
     }
 
     public void addPreferType(PreferType preferType) {

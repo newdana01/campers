@@ -44,7 +44,7 @@ public class Team extends BaseEntity {
             int recruitNumber,
             Set<PreferType> preferTypes,
             Set<PreferRegion> preferRegions,
-            Set<TeamMember> teamMembers,
+            Set<TeamMember> teamMembers
             ) {
         this.name = name;
         this.leader = leader;
@@ -64,5 +64,9 @@ public class Team extends BaseEntity {
 
     public void deleteTeam() {
         this.deletedDtOrNull = LocalDateTime.now();
+    }
+
+    public void addTeamMember(TeamMember teamMember) {
+        teamMembers.add(teamMember);
     }
 }

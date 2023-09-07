@@ -35,4 +35,17 @@ public class Team extends BaseEntity {
     @ManyToMany
     private Set<PreferRegion> preferRegions;
 
+    @Builder
+    protected Team(
+            String name,
+            User leader,
+            int recruitNumber,
+            Set<PreferType> preferTypes,
+            Set<PreferRegion> preferRegions) {
+        this.name = name;
+        this.leader = leader;
+        this.recruitNumber = recruitNumber;
+        this.preferTypes = preferTypes;
+        this.preferRegions = preferRegions;
+    }
 }

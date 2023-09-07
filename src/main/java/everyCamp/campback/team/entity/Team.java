@@ -52,4 +52,8 @@ public class Team extends BaseEntity {
     public void addPreferType(PreferType preferType) {
         this.preferTypes.add(preferType);
     }
+
+    public void addPreferRegion(PreferRegion preferRegion) {
+        this.preferRegions.add(preferRegion);
+    }
 }

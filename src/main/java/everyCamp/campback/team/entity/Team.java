@@ -11,6 +11,7 @@ import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,11 +32,11 @@ public class Team extends BaseEntity {
     @Column(name = "deleted_dt_or_null")
     private LocalDateTime deletedDtOrNull;
     @ManyToMany
-    private Set<PreferType> preferTypes;
+    private List<PreferType> preferTypes;
     @ManyToMany
-    private Set<PreferRegion> preferRegions;
+    private List<PreferRegion> preferRegions;
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private Set<TeamMember> teamMembers;
+    private List<TeamMember> teamMembers;
 
     @Builder
     protected Team(

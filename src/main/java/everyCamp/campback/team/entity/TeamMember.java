@@ -46,4 +46,8 @@ public class TeamMember{
         this.team = team;
         this.user = user;
     }
+
+    public void exitTeam() {
+        this.exitDtOrNull = LocalDateTime.now();
+    }
 }

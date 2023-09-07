@@ -2,6 +2,7 @@ package everyCamp.campback.team.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -29,4 +30,14 @@ public class TeamApplier {
     @Column(name = "applied_dt")
     @CreatedDate
     private LocalDateTime appliedDt;
+
+    @Builder
+    protected TeamApplier(
+            Team team,
+            User user,
+            int recruitNumber
+    ) {
+        this.team = team;
+        this.user = user;
+    }
 }

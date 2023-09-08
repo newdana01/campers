@@ -43,9 +43,9 @@ public class Team extends BaseEntity {
             String name,
             User leader,
             int recruitNumber,
-            Set<PreferType> preferTypes,
-            Set<PreferRegion> preferRegions,
-            Set<TeamMember> teamMembers
+            List<PreferType> preferTypes,
+            List<PreferRegion> preferRegions,
+            List<TeamMember> teamMembers
             ) {
         this.name = name;
         this.leader = leader;

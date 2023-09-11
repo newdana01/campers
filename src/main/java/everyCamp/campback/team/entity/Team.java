@@ -25,7 +25,7 @@ public class Team extends BaseEntity {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "leader_id")
+    @JoinColumn(name = "user_id")
     private User leader;
     private String name;
     private int recruitNumber;
@@ -37,6 +37,7 @@ public class Team extends BaseEntity {
     private List<PreferRegion> preferRegions;
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<TeamMember> teamMembers;
+    private String intro;
 
     @Builder
     protected Team(

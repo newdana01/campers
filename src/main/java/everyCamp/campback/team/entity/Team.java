@@ -38,6 +38,8 @@ public class Team extends BaseEntity {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<TeamMember> teamMembers;
     private String intro;
+    @Column(name = "is_posted")
+    private boolean isPosted;
 
     @Builder
     protected Team(

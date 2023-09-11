@@ -6,7 +6,7 @@ import everyCamp.campback.team.dto.TeamUpdateDto;
 import org.springframework.stereotype.Service;
 
 public interface ITeamService {
-    TeamResponse createTeam(TeamCreateDto team);
+    String createTeam(TeamCreateDto team);
     TeamResponse findTeam(String teamId);
 
     TeamResponse updateTeam(TeamUpdateDto team);

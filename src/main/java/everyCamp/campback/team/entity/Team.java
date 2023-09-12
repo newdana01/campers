@@ -3,6 +3,7 @@ package everyCamp.campback.team.entity;
 import everyCamp.campback.common.entity.BaseEntity;
 import everyCamp.campback.common.entity.PreferRegion;
 import everyCamp.campback.common.entity.PreferType;
+import everyCamp.campback.team.dto.TeamUpdateDto;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -10,9 +11,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -36,13 +35,13 @@ public class Team extends BaseEntity {
     private LocalDateTime deletedDtOrNull;
     @ManyToMany
     @Builder.Default
-    private List<PreferType> preferTypes = new ArrayList<>();
+    private Set<PreferType> preferTypes = new HashSet<>();
     @ManyToMany
     @Builder.Default
-    private List<PreferRegion> preferRegions = new ArrayList<>();
+    private Set<PreferRegion> preferRegions = new HashSet<>();
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     @Builder.Default
-    private List<TeamMember> teamMembers = new ArrayList<>();
+    private Set<TeamMember> teamMembers = new HashSet<>();
     private String intro;
     @Column(name = "is_posted")
     private boolean isPosted;
@@ -57,5 +56,13 @@ public class Team extends BaseEntity {
 
     public void deleteTeam() {
         this.deletedDtOrNull = LocalDateTime.now();
+    }
+
+    public void updateTeam(TeamUpdateDto teamUpdateDto) {
+        this.name = teamUpdateDto.getTeamName();
+        this.intro = teamUpdateDto.getIntro();
+        this.recruitNumber = teamUpdateDto.getRecruitNumber();
+        teamUpdateDto.getPreferTypes().forEach(this::addPreferType);
+        teamUpdateDto.getPreferRegions().forEach(this::addPreferRegion);
     }
 }

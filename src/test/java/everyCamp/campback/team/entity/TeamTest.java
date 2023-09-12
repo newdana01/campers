@@ -27,7 +27,7 @@ public class TeamTest {
         Team team = Team.builder().name("team").build();
         PreferRegion preferRegion = PreferRegion.builder().name("서울").build();
         team.addPreferRegion(preferRegion);
-        PreferRegion p = team.getPreferRegions().get(0);
+        PreferRegion p = team.getPreferRegions().toArray(new PreferRegion[1])[0];
         assertThat(team.getPreferRegions().size()).isEqualTo(1);
         assertThat(p.getName()).isEqualTo("서울");
     }
@@ -38,7 +38,7 @@ public class TeamTest {
         Team team = Team.builder().name("team").build();
         PreferType preferType = PreferType.builder().name("글램핑").build();
         team.addPreferType(preferType);
-        PreferType p = team.getPreferTypes().get(0);
+        PreferType p = team.getPreferTypes().toArray(new PreferType[1])[0];
         assertThat(team.getPreferTypes().size()).isEqualTo(1);
         assertThat(p.getName()).isEqualTo("글램핑");
     }

@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SuperBuilder
 @Getter
@@ -17,7 +19,7 @@ public abstract class TeamBaseDto {
     private String teamName;
     private int recruitNumber;
     @Builder.Default
-    private List<PreferRegion> preferRegions = new ArrayList<>();
+    private Set<PreferRegion> preferRegions = new HashSet<>();
     @Builder.Default
-    private List<PreferType> preferTypes = new ArrayList<>();
+    private Set<PreferType> preferTypes = new HashSet<>();
 }

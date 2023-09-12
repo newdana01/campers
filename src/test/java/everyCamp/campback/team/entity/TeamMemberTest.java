@@ -18,6 +18,6 @@ public class TeamMemberTest {
         //then
         assertThat(team.getTeamMembers().size()).isEqualTo(1);
         assertThat(teamMember.getTeam().getName()).isEqualTo("team1");
-        assertThat(team.getTeamMembers().get(0).getId()).isEqualTo(teamMember.getId());
+        assertThat(team.getTeamMembers().toArray(new TeamMember[1])[0].getId()).isEqualTo(teamMember.getId());
     }
 }

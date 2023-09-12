@@ -31,4 +31,15 @@ public class TeamTest {
         assertThat(team.getPreferRegions().size()).isEqualTo(1);
         assertThat(p.getName()).isEqualTo("서울");
     }
+
+    @Test
+    @DisplayName("선호유형을 추가한다")
+    void addPreferTypeTest() {
+        Team team = Team.builder().name("team").build();
+        PreferType preferType = PreferType.builder().name("글램핑").build();
+        team.addPreferType(preferType);
+        PreferType p = team.getPreferTypes().get(0);
+        assertThat(team.getPreferTypes().size()).isEqualTo(1);
+        assertThat(p.getName()).isEqualTo("글램핑");
+    }
 }

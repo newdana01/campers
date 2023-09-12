@@ -42,8 +42,17 @@ public class TeamServiceImpl implements ITeamService{
     }
 
     @Override
-    public TeamResponse updateTeam(TeamUpdateDto team) {
-        return null;
+    @Transactional
+    public String updateTeam(String teamId, TeamUpdateDto updateTeam) {
+        Team team = teamRepository.findById(teamId).orElseThrow(IllegalArgumentException::new);
+        team.updateTeam(
+                updateTeam.getTeamName(),
+                updateTeam.getIntro(),
+                updateTeam.getRecruitNumber(),
+                updateTeam.getPreferRegions(),
+                updateTeam.getPreferTypes()
+        );
+        return teamId;
     }
 
     @Override

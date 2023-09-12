@@ -56,7 +56,9 @@ public class TeamServiceImpl implements ITeamService{
     }
 
     @Override
+    @Transactional
     public void deleteTeam(String teamId) {
-
+        Team team = teamRepository.findById(teamId).orElseThrow(IllegalArgumentException::new);
+        team.deleteTeam();
     }
 }

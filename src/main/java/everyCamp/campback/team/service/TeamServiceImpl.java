@@ -36,7 +36,9 @@ public class TeamServiceImpl implements ITeamService{
 
     @Override
     public TeamResponse findTeam(String teamId) {
-        return null;
+        Team team = teamRepository.findById(teamId).get();
+        TeamResponse res = TeamResponse.from(team);
+        return res;
     }
 
     @Override

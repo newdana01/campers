@@ -58,8 +58,4 @@ public class Team extends BaseEntity {
     public void deleteTeam() {
         this.deletedDtOrNull = LocalDateTime.now();
     }
-
-    public void addTeamMember(TeamMember teamMember) {
-        teamMembers.add(teamMember);
-    }
 }

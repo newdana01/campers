@@ -50,4 +50,9 @@ public class TeamMember{
     public void exitTeam() {
         this.exitDtOrNull = LocalDateTime.now();
     }
+
+    public void setTeam(Team team) {
+        team.getTeamMembers().add(this);
+        this.team = team;
+    }
 }

@@ -30,7 +30,7 @@ public class Team extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User leader;
     private String name;
-    private int recruitNumber;
+    private Integer recruitNumber;
     @Column(name = "deleted_dt_or_null")
     private LocalDateTime deletedDtOrNull;
     @ManyToMany
@@ -58,11 +58,16 @@ public class Team extends BaseEntity {
         this.deletedDtOrNull = LocalDateTime.now();
     }
 
-    public void updateTeam(TeamUpdateDto teamUpdateDto) {
-        this.name = teamUpdateDto.getTeamName();
-        this.intro = teamUpdateDto.getIntro();
-        this.recruitNumber = teamUpdateDto.getRecruitNumber();
-        teamUpdateDto.getPreferTypes().forEach(this::addPreferType);
-        teamUpdateDto.getPreferRegions().forEach(this::addPreferRegion);
+    public void updateTeam(String name,
+                           String intro,
+                           Integer recruitNumber,
+                           Set<PreferRegion> preferRegions,
+                           Set<PreferType> preferTypes
+    ) {
+        if (name != null) this.name = name;
+        if (intro != null) this.intro = intro;
+        if (recruitNumber != null) this.recruitNumber = recruitNumber;
+        if (preferTypes != null) this.preferTypes = preferTypes;
+        if (preferRegions != null) this.preferRegions = preferRegions;
     }
 }

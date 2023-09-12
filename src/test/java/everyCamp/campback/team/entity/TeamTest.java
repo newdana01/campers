@@ -2,6 +2,7 @@ package everyCamp.campback.team.entity;
 
 import everyCamp.campback.common.entity.PreferRegion;
 import everyCamp.campback.common.entity.PreferType;
+import everyCamp.campback.team.dto.TeamUpdateDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -41,5 +42,25 @@ public class TeamTest {
         PreferType p = team.getPreferTypes().toArray(new PreferType[1])[0];
         assertThat(team.getPreferTypes().size()).isEqualTo(1);
         assertThat(p.getName()).isEqualTo("글램핑");
+    }
+
+    @Test
+    @DisplayName("팀을 수정한다")
+    void updateTeamTest() {
+        // given
+        Team team = Team.builder().name("team").intro("hello").build();
+        TeamUpdateDto updateTeam = TeamUpdateDto.builder().teamName("myTeam").recruitNumber(4).build();
+        //when
+        team.updateTeam(
+                updateTeam.getTeamName(),
+                updateTeam.getIntro(),
+                updateTeam.getRecruitNumber(),
+                updateTeam.getPreferRegions(),
+                updateTeam.getPreferTypes()
+        );
+        //then
+        assertThat(team.getName()).isEqualTo("myTeam");
+        assertThat(team.getRecruitNumber()).isEqualTo(4);
+        assertThat(team.getIntro()).isEqualTo("hello");
     }
 }

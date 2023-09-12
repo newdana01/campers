@@ -2,12 +2,11 @@ package everyCamp.campback.team.api;
 
 import everyCamp.campback.team.service.ITeamService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-public class TeamApiController {
+public class TeamApiController extends TeamBaseController{
     private final ITeamService teamService;
-
 
 }

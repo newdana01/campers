@@ -44,7 +44,8 @@ public class Team extends BaseEntity {
     private Set<TeamMember> teamMembers = new HashSet<>();
     private String intro;
     @Column(name = "is_posted")
-    private boolean isPosted;
+    @Builder.Default
+    private Boolean isPosted = false;
 
     public void addPreferType(PreferType preferType) {
         this.preferTypes.add(preferType);

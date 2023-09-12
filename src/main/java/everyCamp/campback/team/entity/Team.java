@@ -41,7 +41,8 @@ public class Team extends BaseEntity {
     @Builder.Default
     private List<PreferRegion> preferRegions = new ArrayList<>();
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<TeamMember> teamMembers;
+    @Builder.Default
+    private List<TeamMember> teamMembers = new ArrayList<>();
     private String intro;
     @Column(name = "is_posted")
     private boolean isPosted;

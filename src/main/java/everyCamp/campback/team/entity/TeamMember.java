@@ -39,11 +39,8 @@ public class TeamMember{
 
     @Builder
     protected TeamMember(
-            Team team,
-            User user,
-            int recruitNumber
+            User user
     ) {
-        this.team = team;
         this.user = user;
     }
 

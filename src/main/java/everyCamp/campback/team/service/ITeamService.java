@@ -9,7 +9,7 @@ public interface ITeamService {
     String createTeam(TeamCreateDto team);
     TeamResponse findTeam(String teamId);
 
-    TeamResponse updateTeam(TeamUpdateDto team);
+    TeamResponse updateTeam(String teamId, TeamUpdateDto team);
 
     void deleteTeam(String teamId);
 }

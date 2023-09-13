@@ -18,6 +18,7 @@ public class TeamMemberResponse {
     private String userProfileImageUrl;
     private Set<PreferType> preferTypes;
     private LocalDateTime joinDt;
+    private LocalDateTime appliedDt;
 
     public static TeamMemberResponse from(TeamMember teamMember) {
         return TeamMemberResponse.builder()

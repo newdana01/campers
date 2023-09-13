@@ -3,7 +3,8 @@ package everyCamp.campback.team.service;
 import everyCamp.campback.team.dto.TeamCreateDto;
 import everyCamp.campback.team.dto.TeamResponse;
 import everyCamp.campback.team.dto.TeamUpdateDto;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface ITeamService {
     String createTeam(TeamCreateDto team);
@@ -12,4 +13,6 @@ public interface ITeamService {
     String updateTeam(String teamId, TeamUpdateDto team);
 
     void deleteTeam(String teamId);
+
+    List<TeamResponse> findTemporaryTeamList(String userId);
 }

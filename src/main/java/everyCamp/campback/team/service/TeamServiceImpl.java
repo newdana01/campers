@@ -11,6 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -61,4 +64,11 @@ public class TeamServiceImpl implements ITeamService{
         Team team = teamRepository.findById(teamId).orElseThrow(IllegalArgumentException::new);
         team.deleteTeam();
     }
+
+    @Override
+    public List<TeamResponse> findTemporaryTeamList(String userId) {
+        List<Team> notPostedTeams = teamRepository.findAllNotPostedTeams(userId);
+        return notPostedTeams.stream().map(TeamResponse::from).toList();
+    }
+
 }

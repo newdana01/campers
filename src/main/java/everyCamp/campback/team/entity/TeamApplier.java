@@ -23,9 +23,9 @@ public class TeamApplier {
     @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
     @Column(name = "applied_dt")
     @CreatedDate

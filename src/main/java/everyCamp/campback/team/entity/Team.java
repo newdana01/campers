@@ -71,4 +71,8 @@ public class Team extends BaseEntity {
         if (preferTypes != null) this.preferTypes = preferTypes;
         if (preferRegions != null) this.preferRegions = preferRegions;
     }
+
+    public void assignLeader(User user) {
+        this.leader = user;
+    }
 }

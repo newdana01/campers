@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("everyCamp.campback")
 @RequiredArgsConstructor
 public class AppConfig {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Bean
     public JPAQueryFactory jpaQueryFactory() {

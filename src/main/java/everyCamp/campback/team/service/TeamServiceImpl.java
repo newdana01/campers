@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -70,4 +71,14 @@ public class TeamServiceImpl implements ITeamService{
         return notPostedTeams.stream().map(TeamResponse::from).toList();
     }
 
+    @Override
+    @Transactional
+    public void assignLeader(String teamId, String fromUserId, String toUserId) {
+        Team team = teamRepository.findById(teamId).orElseThrow(NoSuchElementException::new);
+        User substituteLeader = userRepository.findById(toUserId).orElseThrow(NoSuchElementException::new);
+
+        if (team.getLeader().getId().equals(fromUserId)) {
+            team.assignLeader(substituteLeader);
+        }
+    }
 }

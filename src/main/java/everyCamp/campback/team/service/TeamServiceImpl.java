@@ -5,20 +5,19 @@ import everyCamp.campback.team.dto.TeamResponse;
 import everyCamp.campback.team.dto.TeamUpdateDto;
 import everyCamp.campback.team.entity.Team;
 import everyCamp.campback.team.entity.User;
-import everyCamp.campback.team.repository.ITeamRepository;
+import everyCamp.campback.team.repository.TeamRepository;
 import everyCamp.campback.team.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class TeamServiceImpl implements ITeamService{
-    private final ITeamRepository teamRepository;
+    private final TeamRepository teamRepository;
     private final IUserRepository userRepository;
 
     @Override

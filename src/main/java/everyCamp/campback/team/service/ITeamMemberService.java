@@ -5,9 +5,7 @@ import everyCamp.campback.team.dto.TeamMemberResponse;
 import java.util.List;
 
 public interface ITeamMemberService {
-    List<TeamMemberResponse> findAllMembers();
+    List<TeamMemberResponse> findAllMembers(String teamId);
 
-    void dropMember(String userId);
-
-    void assignLeader(String toUserId, String fromUserId);
+    void dropMember(String teamId, String userId);
 }

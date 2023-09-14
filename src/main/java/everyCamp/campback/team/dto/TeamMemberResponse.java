@@ -23,8 +23,8 @@ public class TeamMemberResponse {
     public static TeamMemberResponse from(TeamMember teamMember) {
         return TeamMemberResponse.builder()
                 .userId(teamMember.getUser().getName())
-                .userNickname(teamMember.getUser().getNickName())
-                .joinDt(teamMember.getJoinDt())
+                .userNickname(teamMember.getUser().getNickname())
+                .joinDt(teamMember.getJoinDtOrNull())
                 .build();
     }
 }

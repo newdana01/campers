@@ -22,4 +22,14 @@ public class TeamMemberRepositoryImpl implements ITeamMemberCustomRepository{
                 .fetch();
     }
 
+    @Override
+    public TeamMember findOneByTeamIdUserId(String teamId, String userId) {
+        return jpaQueryFactory
+                .selectFrom(teamMember)
+                .where(teamMember.team.id.eq(teamId)
+                        .and(teamMember.user.id.eq(userId)))
+                .fetchOne();
+    }
+
+
 }

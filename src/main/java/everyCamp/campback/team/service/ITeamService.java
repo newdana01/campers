@@ -15,4 +15,6 @@ public interface ITeamService {
     void deleteTeam(String teamId);
 
     List<TeamResponse> findTemporaryTeamList(String userId);
+
+    void assignLeader(String teamId, String fromUserId, String toUserId);
 }

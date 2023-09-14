@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ITeamMemberCustomRepository {
     List<TeamMember> findTeamMembers(String teamId);
+
+    TeamMember findOneByTeamIdUserId(String teamId, String userId);
 }

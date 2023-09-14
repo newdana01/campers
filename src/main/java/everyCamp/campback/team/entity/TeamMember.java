@@ -1,21 +1,13 @@
 package everyCamp.campback.team.entity;
 
-import everyCamp.campback.common.entity.BaseEntity;
-import everyCamp.campback.common.entity.PreferRegion;
-import everyCamp.campback.common.entity.PreferType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 @Table(name = "team_members")
@@ -36,9 +28,6 @@ public class TeamMember{
     private User user;
     @Column(name = "join_dt_or_null")
     private LocalDateTime joinDtOrNull;
-    @Column(name = "applied_dt")
-    @CreatedDate
-    private LocalDateTime appliedDt;
     @Column(name = "exit_dt_or_null")
     private LocalDateTime exitDtOrNull;
 

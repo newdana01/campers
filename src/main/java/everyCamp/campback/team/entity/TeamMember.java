@@ -57,4 +57,6 @@ public class TeamMember{
         team.getTeamMembers().add(this);
         this.team = team;
     }
+
+    public void joinTeam() {this.joinDtOrNull = LocalDateTime.now();}
 }

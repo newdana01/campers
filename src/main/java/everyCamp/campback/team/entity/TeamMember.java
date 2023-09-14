@@ -12,6 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -20,6 +21,7 @@ import java.util.Set;
 @Table(name = "team_members")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
 public class TeamMember{
     @Id
     @Column(name = "team_id")
@@ -30,10 +32,13 @@ public class TeamMember{
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
-    @Column(name = "join_dt")
+    @Column(name = "join_dt_or_null")
+    private LocalDateTime joinDtOrNull;
+    @Column(name = "applied_dt")
     @CreatedDate
-    private LocalDateTime joinDt;
+    private LocalDateTime appliedDt;
     @Column(name = "exit_dt_or_null")
     private LocalDateTime exitDtOrNull;
 

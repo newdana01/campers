@@ -24,7 +24,7 @@ public class TeamServiceImpl implements ITeamService{
     @Override
     @Transactional
     public String createTeam(TeamCreateDto createTeam) {
-        User leader = userRepository.findById(createTeam.getUserId()).orElseThrow(IllegalArgumentException::new);
+        User leader = userRepository.findById(createTeam.getUserId()).orElseThrow(NoSuchElementException::new);
         Team team = Team.builder()
                 .name(createTeam.getTeamName())
                 .recruitNumber(createTeam.getRecruitNumber())

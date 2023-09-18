@@ -3,17 +3,16 @@ package everyCamp.campback.team.service;
 import everyCamp.campback.team.entity.Team;
 import everyCamp.campback.team.entity.TeamApplier;
 import everyCamp.campback.team.entity.TeamMember;
-import everyCamp.campback.team.entity.User;
-import everyCamp.campback.team.repository.IUserRepository;
 import everyCamp.campback.team.repository.TeamApplierRepository;
 import everyCamp.campback.team.repository.TeamMemberRepository;
 import everyCamp.campback.team.repository.TeamRepository;
+import everyCamp.campback.user.entity.User;
+import everyCamp.campback.user.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

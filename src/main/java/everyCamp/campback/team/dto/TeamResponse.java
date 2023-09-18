@@ -1,18 +1,13 @@
 package everyCamp.campback.team.dto;
 
 
-import everyCamp.campback.common.entity.PreferRegion;
-import everyCamp.campback.common.entity.PreferType;
 import everyCamp.campback.team.entity.Team;
-import everyCamp.campback.team.entity.User;
-import lombok.AccessLevel;
-import lombok.Builder;
+import everyCamp.campback.user.entity.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @RequiredArgsConstructor

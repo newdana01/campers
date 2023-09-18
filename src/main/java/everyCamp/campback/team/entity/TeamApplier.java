@@ -1,5 +1,6 @@
 package everyCamp.campback.team.entity;
 
+import everyCamp.campback.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;

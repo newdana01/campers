@@ -3,6 +3,7 @@ package everyCamp.campback.team.entity;
 import everyCamp.campback.common.entity.BaseEntity;
 import everyCamp.campback.common.entity.PreferRegion;
 import everyCamp.campback.common.entity.PreferType;
+import everyCamp.campback.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;

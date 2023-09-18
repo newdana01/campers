@@ -1,8 +1,8 @@
 package everyCamp.campback.team.repository;
 
 import everyCamp.campback.team.entity.Team;
+import everyCamp.campback.user.entity.User;
 import everyCamp.campback.team.entity.TeamMember;
-import everyCamp.campback.team.entity.User;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

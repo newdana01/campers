@@ -43,9 +43,11 @@ public class User {
     @Column(columnDefinition = "TEXT")
     private String intro;
     @CreatedDate
-    private LocalDateTime created_dt;
+    @Column(name = "created_dt")
+    private LocalDateTime createdDt;
     @LastModifiedDate
-    private LocalDateTime updated_dt;
+    @Column(name = "updated_dt")
+    private LocalDateTime updatedDt;
     @Column(name = "deleted_or_null")
     private LocalDateTime deletedDtOrNull;
 }

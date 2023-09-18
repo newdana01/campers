@@ -14,6 +14,7 @@ public class TeamUpdateDto {
     private Set<PreferType> preferTypes;
     private String intro;
     private int recruitNumber;
+    private boolean isPosted;
     //    private Set<String> preferAgeRange;
     //    private Set<String> preferSex;
 }

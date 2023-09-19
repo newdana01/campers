@@ -17,12 +17,13 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class TeamMember{
     @Id
-    @Column(name = "team_id")
+    @Column(name = "team_member_id")
     @GeneratedValue(generator = "uuid4")
     @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String id;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
     private Team team;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -45,6 +46,8 @@ public class TeamMember{
 
     public void setTeam(Team team) {
         team.getTeamMembers().add(this);
+        this.joinDtOrNull = LocalDateTime.now();
+
         this.team = team;
     }
 

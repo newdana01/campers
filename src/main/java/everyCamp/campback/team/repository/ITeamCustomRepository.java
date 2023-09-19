@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ITeamCustomRepository {
     List<Team> findAllNotPostedTeams(String userId);
+
+    Team findTeamJoinedUser(String teamId);
 }

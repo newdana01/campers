@@ -7,10 +7,7 @@ import everyCamp.campback.team.service.ITeamService;
 import everyCamp.campback.user.entity.User;
 import everyCamp.campback.user.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,11 +15,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeamApiController extends TeamBaseController{
     private final ITeamService teamService;
+
     @PostMapping("")
     public String createTeam(@RequestBody TeamCreateDto teamCreateDto) {
         JsonObject res = new JsonObject();
         String teamId = teamService.createTeam(teamCreateDto);
         res.addProperty("teamId", teamId);
         return res.toString();
+    }
+
+    @GetMapping("/{team_id}")
+    public TeamResponse findTeam(@PathVariable("team_id") String teamId) {
+        TeamResponse team = teamService.findTeam(teamId);
+        return team;
     }
 }

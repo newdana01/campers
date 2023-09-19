@@ -4,6 +4,8 @@ import everyCamp.campback.team.dto.TeamCreateDto;
 import everyCamp.campback.team.dto.TeamResponse;
 import everyCamp.campback.team.dto.TeamUpdateDto;
 import everyCamp.campback.team.entity.Team;
+import everyCamp.campback.team.entity.TeamMember;
+import everyCamp.campback.team.repository.TeamMemberRepository;
 import everyCamp.campback.user.entity.User;
 import everyCamp.campback.team.repository.TeamRepository;
 import everyCamp.campback.user.repository.IUserRepository;
@@ -20,6 +22,7 @@ import java.util.NoSuchElementException;
 public class TeamServiceImpl implements ITeamService{
     private final TeamRepository teamRepository;
     private final IUserRepository userRepository;
+    private final TeamMemberRepository teamMemberRepository;
 
     @Override
     @Transactional
@@ -30,16 +33,19 @@ public class TeamServiceImpl implements ITeamService{
                 .recruitNumber(createTeam.getRecruitNumber())
                 .preferTypes(createTeam.getPreferTypes())
                 .preferRegions(createTeam.getPreferRegions())
+                .isPosted(createTeam.getIsPosted())
                 .leader(leader)
                 .build();
-
+        TeamMember teamMember = TeamMember.builder().user(leader).build();
+        teamMember.setTeam(team);
         teamRepository.save(team);
+        teamMemberRepository.save(teamMember);
         return team.getId();
     }
 
     @Override
     public TeamResponse findTeam(String teamId) {
-        Team team = teamRepository.findById(teamId).get();
+        Team team = teamRepository.findTeamJoinedUser(teamId);
         TeamResponse res = TeamResponse.from(team);
         return res;
     }

@@ -47,6 +47,8 @@ public class Team extends BaseEntity {
     @Builder.Default
     private Boolean isPosted = false;
 
+    public void addTeamMember(TeamMember teamMember) {this.teamMembers.add(teamMember);}
+
     public void addPreferType(PreferType preferType) {
         this.preferTypes.add(preferType);
     }

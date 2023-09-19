@@ -22,8 +22,11 @@ public class TeamMemberResponse {
 
     public static TeamMemberResponse from(TeamMember teamMember) {
         return TeamMemberResponse.builder()
-                .userId(teamMember.getUser().getName())
+                .userId(teamMember.getUser().getId())
+                .userName(teamMember.getUser().getName())
                 .userNickname(teamMember.getUser().getNickname())
+                .userProfileImageUrl(teamMember.getUser().getProfileImageUrl())
+                .preferTypes(teamMember.getUser().getPreferTypes())
                 .joinDt(teamMember.getJoinDtOrNull())
                 .build();
     }

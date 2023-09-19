@@ -8,4 +8,6 @@ public interface ITeamMemberCustomRepository {
     List<TeamMember> findTeamMembers(String teamId);
 
     TeamMember findOneByTeamIdUserId(String teamId, String userId);
+
+    List<TeamMember> findByTeamIdWithUser(String teamId);
 }

@@ -31,5 +31,15 @@ public class TeamMemberRepositoryImpl implements ITeamMemberCustomRepository{
                 .fetchOne();
     }
 
+    public List<TeamMember> findByTeamIdWithUser(String teamId) {
+        return jpaQueryFactory.selectFrom(teamMember)
+                .leftJoin(teamMember.user).fetchJoin()
+                .leftJoin(teamMember.user.preferRegions).fetchJoin()
+                .leftJoin(teamMember.user.preferTypes).fetchJoin()
+                .where(teamMember.exitDtOrNull.isNull())
+                .where(teamMember.team.id.eq(teamId))
+                .fetch();
+    }
+
 
 }

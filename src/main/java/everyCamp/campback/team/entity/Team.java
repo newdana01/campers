@@ -65,13 +65,15 @@ public class Team extends BaseEntity {
                            String intro,
                            Integer recruitNumber,
                            Set<PreferRegion> preferRegions,
-                           Set<PreferType> preferTypes
+                           Set<PreferType> preferTypes,
+                           Boolean isDeleted
     ) {
         if (name != null) this.name = name;
         if (intro != null) this.intro = intro;
         if (recruitNumber != null) this.recruitNumber = recruitNumber;
         if (preferTypes != null) this.preferTypes = preferTypes;
         if (preferRegions != null) this.preferRegions = preferRegions;
+        if (isDeleted != null) this.deletedDtOrNull = LocalDateTime.now();
     }
 
     public void assignLeader(User user) {

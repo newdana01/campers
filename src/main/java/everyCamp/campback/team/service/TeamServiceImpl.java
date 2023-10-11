@@ -59,7 +59,8 @@ public class TeamServiceImpl implements ITeamService{
                 updateTeam.getIntro(),
                 updateTeam.getRecruitNumber(),
                 updateTeam.getPreferRegions(),
-                updateTeam.getPreferTypes()
+                updateTeam.getPreferTypes(),
+                updateTeam.getIsDeleted()
         );
         return teamId;
     }

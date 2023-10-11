@@ -56,7 +56,8 @@ public class TeamTest {
                 updateTeam.getIntro(),
                 updateTeam.getRecruitNumber(),
                 updateTeam.getPreferRegions(),
-                updateTeam.getPreferTypes()
+                updateTeam.getPreferTypes(),
+                updateTeam.getIsDeleted()
         );
         //then
         assertThat(team.getName()).isEqualTo("myTeam");

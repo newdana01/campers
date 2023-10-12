@@ -19,6 +19,7 @@ public class TeamMemberRepositoryImpl implements ITeamMemberCustomRepository{
         return jpaQueryFactory
                 .selectFrom(teamMember)
                 .leftJoin(teamMember.user).fetchJoin()
+                .where(teamMember.team.id.eq(teamId))
                 .fetch();
     }
 

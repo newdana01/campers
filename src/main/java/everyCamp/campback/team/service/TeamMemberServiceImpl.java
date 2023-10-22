@@ -36,4 +36,15 @@ public class TeamMemberServiceImpl implements ITeamMemberService{
         TeamMember teamMember = teamMemberRepository.findOneByTeamIdUserId(teamId, userId);
         teamMember.exitTeam();
     }
+
+    @Override
+    @Transactional
+    public void updateMember(String userId, String teamId) {
+        Team team = teamRepository.findById(teamId).orElseThrow(NoSuchElementException::new);
+        //        if (team.getLeader().getId().equals(userId)) {
+//             // 권한 에러 추가
+//        }
+        TeamMember teamMember = teamMemberRepository.findOneByTeamIdUserId(teamId, userId);
+        teamMember.exitTeam();
+    }
 }

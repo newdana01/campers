@@ -1,7 +1,6 @@
 package everyCamp.campback.team.service;
 
 import everyCamp.campback.team.dto.TeamMemberResponse;
-import everyCamp.campback.team.dto.TeamMemberUpdateDto;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package everyCamp.campback.team.api;
 
 import everyCamp.campback.team.dto.TeamMemberResponse;
-import everyCamp.campback.team.dto.TeamMemberUpdateDto;
 import everyCamp.campback.team.service.ITeamMemberService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +28,7 @@ public class TeamMemberApiController extends TeamMemberBaseController{
         private String userId;
     }
 
-    @DeleteMapping("/withdraq")
+    @DeleteMapping("/withdraw")
     public void updateTeamMember(@RequestParam("team_id") String teamId) {
         // TODO: userId
         String userId = "";
